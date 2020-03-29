@@ -7,7 +7,7 @@ The experiments use a dataset from the Stanford Hospital of FDG-PET/CT scans and
 
 
 <p align="center">
-<img src="https://github.com/seyuboglu/petct/blob/master/data/images/fig1.png" width="800" align="center">
+<img src="https://github.com/seyuboglu/weakly-supervised-petct/tree/master/data/images/fig1.png" width="800" align="center">
 </p>
 
 ## Requirements
