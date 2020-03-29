@@ -6,7 +6,7 @@ from collections import namedtuple
 
 import torch
 import torch.nn as nn
-from pytorch_pretrained_bert.modeling import (BertModel, BertEncoder, BertAttention, 
+from transformers.modeling_bert import (BertModel, BertEncoder, BertAttention, 
                                               BertIntermediate, BertLayer, BertOutput,
                                               BertPreTrainedModel, BertEmbeddings, BertPooler,
                                               BertConfig, BertSelfOutput)

@@ -11,9 +11,8 @@ import torch.optim as optims
 import torch.optim.lr_scheduler as schedulers
 from tqdm import tqdm
 from metal.utils import place_on_gpu
-#from pytorch_pretrained_bert.modeling import BertModel, BertForPreTraining, BertOnlyMLMHead, BertConfig
-from pytorch_transformers import BertModel, BertForPreTraining, BertConfig
-from pytorch_transformers.modeling_bert import BertOnlyMLMHead
+from transformers import BertModel, BertForPreTraining, BertConfig
+from transformers.modeling_bert import BertOnlyMLMHead
 from pet_ct.model.base_model import BaseModel
 from pet_ct.data.vocab import WordPieceVocab
 from pet_ct.analysis.metrics import Metrics

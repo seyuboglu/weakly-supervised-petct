@@ -9,8 +9,6 @@ import numpy as np
 import pandas as pd
 import sklearn.metrics as skl
 import torch
-from nltk.translate.bleu_score import sentence_bleu
-from rouge import Rouge
 
 from pet_ct.util.util import hard_to_soft, flex_concat, place_on_cpu, get_batch_size
 from pet_ct.data.report_transforms import split_impression_sections, word_tokenize
@@ -342,69 +340,3 @@ def negative_f1_score(probs, labels):
 
     pred = np.argmax(probs, axis=1)
     return skl.f1_score(labels, pred, pos_label=0)
-
-
-def bleu(batch_predictions, batch_targets,
-         weights=(0.25, 0.25, 0.25, 0.25), split=False):
-    """
-    args:
-        predictions (list(list(str))) predicted sentence, tokenized
-        targets (list(list(str)))  reference target sentences
-    """
-    # if only one target is provided, wrap it in a list
-    if type(batch_targets[0]) == str:
-        batch_targets = [list(map(word_tokenize,
-                                  split_impression_sections(" ".join(targets))))
-                         if split else [targets] for targets in batch_targets]
-
-    scores = []
-    for curr_prediction, curr_targets in zip(batch_predictions, batch_targets):
-        score = sentence_bleu(curr_targets, curr_prediction, weights=weights)
-        scores.append(score)
-
-    return np.mean(scores)
-
-def rouge(batch_predictions, batch_targets, metric="n", n=1,
-          statistic="precision", split=False):
-    """
-    args:
-        predictions (list(list(str))) predicted sentence, tokenized
-        targets (list(list(str or list(str))))  reference target sentences
-    """
-    # if only one target is provided, wrap it in a list
-    if type(batch_targets[0]) == str:
-        batch_targets = [list(map(word_tokenize,
-                                  split_impression_sections(" ".join(targets))))
-                         if split else [targets] for targets in batch_targets]
-
-    name = f'rouge-{metric}'
-    rouge_obj = Rouge(metrics=[name],
-                  max_n=n,
-                  limit_length=True,
-                  length_limit=100,
-                  length_limit_type='words',
-                  apply_avg=True,
-                  apply_best=False,
-                  alpha=0.5,
-                  weight_factor=1.2,
-                  stemming=True)
-
-    batch_predictions = [" ".join(prediction) for prediction in batch_predictions]
-
-    batch_targets = [[" ".join(ref) for ref in refs] for refs in batch_targets]
-    scores = rouge_obj.get_scores(batch_predictions, batch_targets)
-
-    # pyrouge uses only first letter of name
-    if metric == "n":
-        name = f'rouge-{n}'
-    return scores[name][name[0]]
-
-
-def cider(batch_predictions, batch_targets):
-    """
-    args:
-        predictions (list(str)) predicted sentence
-        targets (list(list(str)))   reference target sentences
-    """
-    return
-

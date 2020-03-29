@@ -11,11 +11,10 @@ setuptools.setup(
     entry_points={
         'console_scripts': [
             'run=pet_ct.run:run',
-            'create=pet_ct.run:create',
-            'connect=pet_ct.run:connect'
+            'create=pet_ct.run:create'
         ]
     },
-    name="fdg-pet-ct",
+    name="pet-ct",
     version="0.0.1",
     author="Geoff Angus and Sabri Eyuboglu",
     author_email="eyuboglu@stanford.edu",
@@ -30,9 +29,34 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-        'torch', 'torchvision', 'h5py', 'numpy', 'pandas', 'scipy', 'scikit-learn', 'statsmodels',
-        'opencv-python', 'pydicom', 'tqdm', 'Pillow', 'click', 'matplotlib', 'networkx', 'jsmin',
-        'ipywidgets', 'nltk', 'sentencepiece', 'plotly', 'tensorboardX', 'pytorch-pretrained-bert',
-        'snorkel-metal', 'py-rouge', 'seaborn', 'colorlover'
+        'Click==7.0', 
+        'h5py==2.9.0', 
+        'ipykernel==5.1.1',
+        'ipython==7.6.1',
+        'ipywidgets==7.5.0',
+        'ipyvolume==0.5.2',
+        'jupyter==1.0.0',
+        'jupyterlab==1.0.2',
+        'lifelines==0.23.0',
+        'matplotlib==3.1.1',
+        'networkx==2.3',
+        'nltk==3.4.4',
+        'nodejs==0.1.1',
+        'numpy==1.16.4',
+        'opencv-python==4.1.0.25',
+        'pandas==0.24.2',
+        'Pillow==6.1.0',
+        'pydicom==1.3.0',
+        'transformers==2.6.0',
+        'scikit-learn==0.21.2',
+        'scipy==1.3.0',
+        'seaborn==0.9.0',
+        'sentencepiece==0.1.82',
+        'six==1.12.0',
+        'snorkel-metal==0.5.0',
+        'tensorboardX==1.8',
+        'torch==1.1.0',
+        'torchvision==0.3.0',
+        'tqdm==4.32.2',
     ]
 )

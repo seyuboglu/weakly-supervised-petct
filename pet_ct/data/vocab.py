@@ -21,7 +21,7 @@ from nltk import sent_tokenize
 from tqdm import tqdm
 import torch
 import numpy as np
-from pytorch_pretrained_bert import WordpieceTokenizer
+from transformers import WordpieceTokenizer
 
 from pet_ct.util.util import Process, place_on_cpu
 

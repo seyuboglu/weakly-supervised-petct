@@ -12,19 +12,19 @@ The experiments use a dataset from the Stanford Hospital of FDG-PET/CT scans and
 
 ## Installation
 Clone the repository
-
 ```bash
 git clone https://github.com/seyuboglu/weakly-supervised-petct.git
 cd weakly-supervised-petct
 ```
-
-Create a virtual environment and activate it
+Create a virtual environment and activate it (or activate an existing one)
 ```
 python3.7 -m venv ./env
 source env/bin/activate
 ```
 
-Install package (`-e` for development mode)
+Install the package (`-e` for development mode):
 ```
 pip install -e .
 ```
+
+ReadME

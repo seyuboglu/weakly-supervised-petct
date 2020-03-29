@@ -8,14 +8,13 @@ from torch import nn
 import torch.optim as optims
 import torch.optim.lr_scheduler as schedulers
 from tqdm import tqdm
-from metal.utils import place_on_gpu
 
 from pet_ct.model.base_model import BaseModel
 from pet_ct.data.vocab import WordVocab
 from pet_ct.analysis.metrics import Metrics
 import pet_ct.model.modules as modules
 import pet_ct.model.losses as losses
-from pet_ct.util.util import log_cuda_memory
+from pet_ct.util.util import log_cuda_memory, place_on_gpu
 
 
 class MTReportModel(BaseModel):

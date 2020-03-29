@@ -1,6 +1,5 @@
 """General utility functions"""
 
-from jsmin import jsmin
 import json
 import os
 import sys
@@ -151,12 +150,6 @@ def load_params(process_dir):
         params_path = os.path.join(process_dir, "params.json")
         with open(params_path) as f:
             params = json.load(f)
-
-    elif os.path.exists(os.path.join(process_dir, "params.jsonc")):
-        params_path = os.path.join(process_dir, "params.jsonc")
-        with open(params_path) as f:
-            minified_json = jsmin(f.read())
-            params = json.loads(minified_json)
 
     else:
         raise Exception(f"No params.json file found at {[process_dir]}.")
