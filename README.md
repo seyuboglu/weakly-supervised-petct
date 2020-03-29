@@ -17,18 +17,18 @@ This repository includes a PyTorch implementation of a multi-task, weak supervis
 
 ## Installation
 
-[1] Clone the repository
+[1] Clone the repository [~1 min]
 ```bash
 git clone https://github.com/seyuboglu/weakly-supervised-petct.git
 cd weakly-supervised-petct
 ```
-[2] Create a virtual environment and activate it (or activate an existing one)
+[2] Create a virtual environment and activate it (or activate an existing one) [~1 min]
 ```
 python3.7 -m venv ./env
 source env/bin/activate
 ```
 
-[3] Install the package (`-e` for development mode):
+[3] Install the package and dependencies (`-e` for development mode) [~5 min]:
 ```
 pip install -e .
 ```
@@ -40,13 +40,17 @@ pip install -e .
 - Training models in this package intractable without GPU compute. We have tested this package on Nvidia TITAN Xp GPUs with Driver Version: 430.50 and CUDA Version: 10.1 
 
 ## Tutorials
+### Preparing Data
+`tutorials/01_data/data_tutor.ipynb`  
+How to prepare data for use with our weak supervision framework.
+
 ### Labeling a Dataset for Abnormality Localization
-`tutorials/labeling/notebook.ipynb`  
+`tutorials/02_labeling/labeling_tutor.ipynb`  
 How to perform inference on the task of abnormality localization with a pretrained scan model.  
 In this notebook we cover:
 
 ### Abnormality Localization Training
-`tutorials/training/notebook.ipynb`  
+`tutorials/03_training/training_tutor.ipynb`  
 How to perform inference on the task of abnormality localization with a pretrained scan model.  
 In this notebook we cover: 
 1. Loading model configurations from a JSON like the one at `tutorials/inference/params.json`
@@ -56,7 +60,7 @@ In this notebook we cover:
 5. How output is structured
 
 ### Abnormality Localization Inference
-`tutorials/inference/notebook.ipynb`  
+`tutorials/04_inference/inference_tutor.ipynb`  
 How to perform inference on the task of abnormality localization with a pretrained scan model.  
 In this notebook we cover: 
 1. Loading model configurations from a JSON like the one at `tutorials/inference/params.json`
