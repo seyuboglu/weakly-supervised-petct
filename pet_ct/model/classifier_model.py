@@ -2,6 +2,7 @@
 """
 import logging
 import gc
+import json
 
 import torch
 from torch import nn
@@ -177,3 +178,25 @@ class MTClassifierModel(BaseModel):
             targets[task] = soft_to_hard(targets[task].cpu().detach(),
                                          break_ties=0)
         return targets
+    
+    @staticmethod
+    def load_params(path):
+        """
+        Loads parameters from .json file at path and distributes shared parameters as 
+        necessary for the mt_classifier model.
+        """
+        with open(path) as f:
+            params = json.load(f)["process_args"]
+        
+        # distribute shared params
+        new_task_configs = []
+        for task_config in params["task_configs"]:
+            new_task_config = params["default_task_config"].copy()
+            new_task_config.update(task_config)
+            new_task_configs.append(new_task_config)
+        task_configs = new_task_configs
+
+        params["model_args"]["task_configs"] = task_configs
+        params["dataset_args"]["task_configs"] = task_configs
+        
+        return params

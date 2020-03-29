@@ -33,15 +33,41 @@ source env/bin/activate
 pip install -e .
 ```
 
-## Requirements
+### Requirements
 - This package has been tested on the following systems: macOS Catalina (10.15) and Ubuntu Linux (16.04.5).
 - This package requires Python >=3.7.3
 - This package depends on a number of open-source Python packages which can be found in the [setup.py](https://github.com/seyuboglu/weakly-supervised-petct/blob/master/setup.py).
 - Training models in this package intractable without GPU compute. We have tested this package on Nvidia TITAN Xp GPUs with Driver Version: 430.50 and CUDA Version: 10.1 
 
+## Tutorials
+### Labeling a Dataset for Abnormality Localization
+`tutorials/labeling/notebook.ipynb`  
+How to perform inference on the task of abnormality localization with a pretrained scan model.  
+In this notebook we cover:
+
+### Abnormality Localization Training
+`tutorials/training/notebook.ipynb`  
+How to perform inference on the task of abnormality localization with a pretrained scan model.  
+In this notebook we cover: 
+1. Loading model configurations from a JSON like the one at `tutorials/inference/params.json`
+2. Building a `pet_ct.model.MTClassifierModel` and loading pretrained weights (Note: we do not provide pretrained weights for our models to protect PHI.)
+3. How input to the model should be structured
+4. How to perform inference on the model using `pet_ct.model.MTClassifierModel.predict`
+5. How output is structured
+
+### Abnormality Localization Inference
+`tutorials/inference/notebook.ipynb`  
+How to perform inference on the task of abnormality localization with a pretrained scan model.  
+In this notebook we cover: 
+1. Loading model configurations from a JSON like the one at `tutorials/inference/params.json`
+2. Building a `pet_ct.model.MTClassifierModel` and loading pretrained weights (Note: we do not provide pretrained weights for our models to protect PHI.)
+3. How input to the model should be structured
+4. How to perform inference on the model using `pet_ct.model.MTClassifierModel.score`
+5. How output is structured
+
+### Experiments
+The parameters and results for all the experiments reported in our manuscript can be found in the `experiments` directory. 
 
 ### Data 
 The experiments use a dataset from the Stanford Hospital of FDG-PET/CT scans and their associated reports. A tutorial on how to load a model in for predictions on custom input can be found at `pet_ct/notebooks/tutorial/notebook.ipynb`.
-### Tutorials
 
-### Experiments

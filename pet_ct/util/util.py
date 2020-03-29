@@ -416,6 +416,7 @@ def flex_concat(items, dim=0):
     else:
         raise TypeError(f"Unrecognized type f{type(items[0])}")
 
+
 def flex_stack(items, dim=0):
     """
     """
@@ -437,6 +438,7 @@ def flex_stack(items, dim=0):
     else:
         raise TypeError(f"Unrecognized type f{type(items[0])}")
 
+
 def place_on_gpu(data, device=0):
     """
     Recursively places all 'torch.Tensor's in data on gpu and detaches.
@@ -457,6 +459,7 @@ def place_on_gpu(data, device=0):
         return data.to(device)
     else:
         return data
+
 
 def place_on_cpu(data):
     """
