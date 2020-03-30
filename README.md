@@ -42,12 +42,18 @@ pip install -e .
 ## Tutorials
 ### Preparing Data
 `tutorials/01_data/data_tutor.ipynb`  
-How to prepare data for use with our weak supervision framework.
+How to prepare data for our multi-task, weak supervision framework.  We use  [HDF5](https://www.hdfgroup.org/solutions/hdf5/), a file format optimized for high-dimensional heterogeneous datasets (like ours!). Using HDF5 allows us to store all of the data (i.e. scan, report, and metadata) for each exam in our dataset in one place. Unfortunately, many of you are probably unfamiliar with the HDF5 interface, so below we walk you through how to prepare an HDF5 dataset with volumetric imaging data for use in our framework!
+
+In this notebook we:  
+
+1. Go through the motions of preparing an HDF5 dataset for use with our framework. We prepare the dataset with dummy data, but show how you can replace a few functions with custom ones for loading your own data. 
+
+2. Show how we can use this HDF5 dataset with the PyTorch `Dataset` classes we've implemented such as `pet_ct.learn.datasets.MTClassifierDataset`. (TODO)
 
 ### Labeling a Dataset for Abnormality Localization
 `tutorials/02_labeling/labeling_tutor.ipynb`  
 How to perform inference on the task of abnormality localization with a pretrained scan model.  
-In this notebook we cover:
+TODO
 
 ### Abnormality Localization Training
 `tutorials/03_training/training_tutor.ipynb`  
