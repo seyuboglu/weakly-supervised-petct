@@ -40,7 +40,7 @@ setuptools.setup(
         'lifelines==0.23.0',
         'matplotlib==3.1.1',
         'networkx==2.3',
-        'nltk==3.4.4',
+        'nltk==3.4.5',
         'nodejs==0.1.1',
         'numpy==1.16.4',
         'opencv-python==4.1.0.25',
