@@ -1,7 +1,7 @@
 # Multi-task weak supervision enables automated abnormality localization in whole-body FDG-PET/CT
 *Sabri Eyuboglu\*, Geoffrey Angus\*, Bhavik N. Patel, Anuj Pareek, Guido Davidzon, Jared Dunnmon\*\*, Matthew P. Lungren\*\**
 
-This repository includes a PyTorch implementation of a multi-task, weak supervision framework for abnormality localization in large, volumetric medical images, as described in [our manuscript](https://cs.stanford.edu/people/sabrieyuboglu/petct.pdf). Unlike existing weak supervision approaches that use programmatic labeling functions, this one is based on expressive, pre-trained language models that can learn to extract complex labels from unstructured text with just a tiny sample of hand-annotated data. Using these labels, multi-task convolutional neural networks can be trained to  localize features of interest in large volumetric images.
+This repository includes a PyTorch implementation of a multi-task, weak supervision framework for abnormality localization in large, volumetric medical images, as described in [our manuscript](https://github.com/seyuboglu/weakly-supervised-petct/raw/master/manuscript.pdf). Unlike existing weak supervision approaches that use programmatic labeling functions, this one is based on expressive, pre-trained language models that can learn to extract complex labels from unstructured text with just a tiny sample of hand-annotated data. Using these labels, multi-task convolutional neural networks can be trained to  localize features of interest in large volumetric images.
 
  | Section | Description |
 |-|-|
