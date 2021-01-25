@@ -29,36 +29,62 @@ class Tuner(Process):
         self.train_schema = train_schema
         self.eval_args = eval_args
 
-    def search(self, train_args={}, max_search=None,
-               train_split="train", valid_split="valid", overwrite=False):
+    def search(
+        self,
+        train_args={},
+        max_search=None,
+        train_split="train",
+        valid_split="valid",
+        overwrite=False,
+    ):
         """
         Performs a simple search over all
         """
         self._create_experiments(self.train_schema)
         for idx, experiment_dir in enumerate(self.experiments.keys()):
-            if os.path.isfile(os.path.join(experiment_dir, 'best',
-                                           f"{valid_split}_metrics.json")):
-                logging.info(f'{experiment_dir} is already trained. Continuing...')
+            if os.path.isfile(
+                os.path.join(experiment_dir, "best", f"{valid_split}_metrics.json")
+            ) and not overwrite:
+                self.notify_user(event="checkpoint", msg=f"Experiment {idx}/{len(self.experiments)} is already trained. Continuing...")
+                logging.info(f"{experiment_dir} is already trained. Continuing...")
                 continue
             logging.info(f"Training experiment at {experiment_dir}\n {'-'*30}")
             if max_search is not None and idx >= max_search:
                 break
 
             experiment = Experiment.load_from_dir(process_dir=experiment_dir)
-            experiment.train(train_split=train_split, valid_split=valid_split, overwrite=overwrite)
+            experiment.train(
+                train_split=train_split, valid_split=valid_split, overwrite=overwrite
+            )
+            self.notify_user(event="checkpoint", msg=f"Completed experiment {idx}/{len(self.experiments)}")
 
-    def evaluate(self, eval_split, reload_epochs=["best"],
-                 data_loader_config=None, dataset_dir=None, targets_dir=None, devices=[0]):
+
+    def evaluate(
+        self,
+        eval_split,
+        reload_epochs=["best"],
+        data_loader_config=None,
+        dataset_dir=None,
+        targets_dir=None,
+        devices=[0],
+    ):
         """
         """
         for reload_epoch in reload_epochs:
-            for experiment_dir in os.listdir(os.path.join(self.dir, "candidates")):
+            candidates = list(os.listdir(os.path.join(self.dir, "candidates")))
+            for idx, experiment_dir in enumerate(candidates):
                 experiment_dir = os.path.join(self.dir, "candidates", experiment_dir)
-                if os.path.isfile(os.path.join(experiment_dir, reload_epoch,
-                                               f"{eval_split}_metrics.json")) or \
-                   os.path.isfile(os.path.join(experiment_dir,
-                                               f"{eval_split}_metrics.json")):
-                    logging.info(f"Already evaluated: {experiment_dir} at {reload_epoch}")
+                if os.path.isfile(
+                    os.path.join(
+                        experiment_dir, reload_epoch, f"{eval_split}_metrics.json"
+                    )
+                ) or os.path.isfile(
+                    os.path.join(experiment_dir, f"{eval_split}_metrics.json")
+                ):
+                    logging.info(
+                        f"Already evaluated: {experiment_dir} at {reload_epoch}"
+                    )
+                    self.notify_user(event="checkpoint", msg=f"Experiment {idx}/{len(candidates)} is already evaluated. Continuing...")
                     continue
                 logging.info(f"Evaluating {experiment_dir} at {reload_epoch}.")
 
@@ -75,9 +101,14 @@ class Tuner(Process):
                 try:
                     experiment = Experiment(experiment_dir, **params["process_args"])
                     experiment.evaluate(eval_split)
+                    self.notify_user(event="checkpoint", msg=f"Completed experiment {idx}/{len(candidates)}")
                 except Exception as e:
-                    logging.info(f"Failed: {os.path.join(experiment_dir, reload_epoch)}")
+                    logging.info(
+                        f"Failed: {os.path.join(experiment_dir, reload_epoch)}"
+                    )
                     logging.info(str(e))
+                    self.notify_user(event="error", msg=f"failed evaluation {idx}/{len(candidates)}")
+                    self.notify_user(event="error", msg=f"str(e)")
 
     def _train_model(self, experiment_dir):
         experiment = Experiment.load_from_dir(process_dir=experiment_dir)
@@ -85,14 +116,17 @@ class Tuner(Process):
         self.experiments[experiment_dir]["last_metrics"] = last_metrics
         return last_metrics
 
-    def _run(self, overwrite=False,
-             mode="eval", train_split="train", valid_split="valid"):
+    def _run(
+        self, overwrite=False, mode="train", train_split="train", valid_split="valid"
+    ):
         if mode == "eval":
             logging.info("Tuner evaluating...")
             self.evaluate(**self.eval_args)
         elif mode == "train":
             logging.info("Tuner searching...")
-            self.search(train_split=train_split, valid_split=valid_split, overwrite=overwrite)
+            self.search(
+                train_split=train_split, valid_split=valid_split, overwrite=overwrite
+            )
 
     def _create_experiments(self, params):
         """
@@ -105,13 +139,17 @@ class Tuner(Process):
         self.experiments = {}
         for idx, curr_params in enumerate(params):
             experiment_dir = os.path.join(self.candidates_dir, f"exp_{idx}")
-            self.experiments[experiment_dir] = {"last_metrics": None,
-                                                "best_metrics": None,
-                                                "params": curr_params}
+            self.experiments[experiment_dir] = {
+                "last_metrics": None,
+                "best_metrics": None,
+                "params": curr_params,
+            }
             ensure_dir_exists(experiment_dir)
-            with open(os.path.join(experiment_dir, 'params.json'), 'w') as f:
+            with open(os.path.join(experiment_dir, "params.json"), "w") as f:
                 json.dump(curr_params, f, indent=4)
-            create_notebook(experiment_dir, notes=f"Created as part of tuner {self.dir}")
+            create_notebook(
+                experiment_dir, notes=f"Created as part of tuner {self.dir}"
+            )
 
     def _expand_params(self, param):
         """
@@ -135,7 +173,9 @@ class Tuner(Process):
 
             expansions = []
             for expansion in product(*child_expansions):
-                expansions.append({child_keys[idx]: val for idx, val in enumerate(expansion)})
+                expansions.append(
+                    {child_keys[idx]: val for idx, val in enumerate(expansion)}
+                )
             return expansions
 
         elif type(param) is dict:
@@ -146,13 +186,15 @@ class Tuner(Process):
                     for opt in tune_params["opts"]:
                         expanded_params.extend(self._expand_params(param=opt))
                 else:
-                    raise ValueError(f"Search mode {tune_params['search_mode']} " +
-                                     f"not recognized")
+                    raise ValueError(
+                        f"Search mode {tune_params['search_mode']} " + f"not recognized"
+                    )
             elif tune_params["type"] == "continuous":
                 pass
             else:
-                raise ValueError(f"Hyperparameter type {tune_params['type']} not " +
-                                 f"recognized.")
+                raise ValueError(
+                    f"Hyperparameter type {tune_params['type']} not " + f"recognized."
+                )
             return expanded_params
         else:
             return [param]

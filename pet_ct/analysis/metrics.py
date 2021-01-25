@@ -4,13 +4,16 @@ Defines metric functions of form
 Where output_batch and labels_batch are torch tensors on the cpu.
 """
 from collections import defaultdict
+import os 
+import json
+import logging 
 
 import numpy as np
 import pandas as pd
 import sklearn.metrics as skl
 import torch
 
-from pet_ct.util.util import hard_to_soft, flex_concat, place_on_cpu, get_batch_size
+from pet_ct.util.util import hard_to_soft, flex_concat, place_on_cpu, get_batch_size, process
 from pet_ct.data.report_transforms import split_impression_sections, word_tokenize
 
 
@@ -340,3 +343,51 @@ def negative_f1_score(probs, labels):
 
     pred = np.argmax(probs, axis=1)
     return skl.f1_score(labels, pred, pos_label=0)
+
+
+def compute_subset_metrics(experiment_dir, splits=None, epoch="best", exam_ids=None):
+    if splits is None:
+        splits = ["test"]
+    
+    for split in splits:  
+        preds_df = pd.read_csv(os.path.join(experiment_dir, f"{epoch}/{split}_preds.csv"), skiprows=[0])
+        preds_df = preds_df.rename(columns={"Unnamed: 0": "exam_id"})
+        preds_df.target = preds_df.target.apply(lambda x: int(x.strip("[]")))
+        preds_df.pred = preds_df.pred.apply(lambda x: int(x.strip("[]")))
+        preds_df.correct_prob = preds_df.correct_prob.apply(lambda x: float(x.strip("[]")))
+        preds_df["prob"] = preds_df.apply(lambda x: x.correct_prob if x.target == 1 else 1 - x.correct_prob, axis=1)
+        
+        metrics_path = os.path.join(experiment_dir, f"{epoch}/{split}_metrics.json")
+        with open(metrics_path) as f:
+            metrics_dict = json.load(f)
+            task = next(metrics_dict.keys().__iter__())
+            metrics_dict = next(metrics_dict.values().__iter__())
+        
+        # check that we're computing the same metrics that were recorded at test time
+        assert(np.abs(metrics_dict["roc_auc"] - skl.roc_auc_score(y_true=preds_df.target, y_score=preds_df.prob)) < 0.01)
+        
+        mask = preds_df.exam_id.isin(exam_ids)
+        metrics = {
+            task: {
+              "roc_auc": skl.roc_auc_score(
+                  y_true=preds_df[mask].target, 
+                  y_score=preds_df[mask].prob
+              )
+            }
+        }
+        
+        path = os.path.join(experiment_dir, f"{epoch}/{split}_{len(exam_ids)}_metrics.json")
+        with open(path, 'w') as f:
+            logging.info(f"Writing metrics to path {path}.")
+            json.dump(metrics, f)
+
+@process
+def compute_subset_metrics_many(process_dir, experiment_dirs: list, subset_path: str):
+
+    exam_ids = set(pd.read_csv(subset_path).exam_id)
+
+    for experiment_dir in experiment_dirs:
+        if os.path.isdir(os.path.join(experiment_dir, "candidates")):
+            for dirname in os.listdir(os.path.join(experiment_dir, "candidates")):
+                subdir = os.path.join(experiment_dir, "candidates", dirname)
+                compute_subset_metrics(subdir, exam_ids=exam_ids)

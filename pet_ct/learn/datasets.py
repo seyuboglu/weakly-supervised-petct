@@ -3,6 +3,7 @@
 import os
 import json
 from time import time
+import math
 
 import numpy as np
 import pandas as pd
@@ -703,6 +704,9 @@ class MTMortalityDataset(MTClassifierDataset):
 
         if "mortality" in self.tasks:
             mortality_val = self.mortality_targets_df.loc[exam['exam_id']]["days_from_death"]
+            if math.isnan(mortality_val):
+                mortality_val = self.mortality_targets_df.loc[exam['exam_id']]["days_from_followup"]
+
             mortality_target = torch.zeros(len(self.class_boundaries) + 1)
             for idx, boundary in enumerate(self.class_boundaries):
                 if mortality_val < boundary:

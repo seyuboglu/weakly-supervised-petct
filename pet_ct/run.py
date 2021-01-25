@@ -106,7 +106,7 @@ def create(group_dir, copy_dir, name, message):
             copy_dirs = [copy_dir for copy_dir in copy_dirs if copy_dir[0] != '_']
             copy_dir = os.path.join(group_dir, sorted(copy_dirs)[-1])
 
-    name = f"{strftime('%m-%d_%H-%M', localtime())}_{name}"
+    name = f"{strftime('%y-%m-%d_%H-%M', localtime())}_{name}"
     process_dir = os.path.join(group_dir, name)
     ensure_dir_exists(process_dir)
 

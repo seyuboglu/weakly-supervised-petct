@@ -167,7 +167,6 @@ class TaskHeadManager(nn.Module):
         if targets_path:
             self.targets_df = pd.read_csv(targets_path, index_col=0,
                                           header=[0, 1], skipinitialspace=True)
-        print(task_configs)
         for task_config in task_configs:
             task = task_config['task']
             self.task_to_weight[task] = task_config.get('loss_weight', 1.0)

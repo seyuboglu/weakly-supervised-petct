@@ -311,7 +311,7 @@ class MTExamDataLoader(DataLoader):
                                              sampler=sampler,
                                              weights=weights,
                                              num_samples=num_samples,
-                                             replacement=replacement,
+                                             replacement=True,
                                              shuffle=shuffle,
                                              drop_last=False)
 

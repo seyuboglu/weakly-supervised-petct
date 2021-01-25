@@ -17,11 +17,17 @@ from pet_ct.util.util import place_on_gpu, log_cuda_memory, log_predictions
 class BaseModel(nn.Module):
     """
     """
-    def __init__(self,
-                 optim_class="Adam", optim_args={},
-                 scheduler_class=None, scheduler_args={},
-                 pretrained_configs=[],
-                 cuda=True, devices=[0]):
+
+    def __init__(
+        self,
+        optim_class="Adam",
+        optim_args={},
+        scheduler_class=None,
+        scheduler_args={},
+        pretrained_configs=[],
+        cuda=True,
+        devices=[0],
+    ):
         """
         args:
             device (int or list(int)) A device or a list of devices
@@ -40,8 +46,9 @@ class BaseModel(nn.Module):
         """
         WARNING: must be called at the end of subclass init
         """
-        self._build_optimizer(self.optim_class, self.optim_args,
-                              self.scheduler_class, self.scheduler_args)
+        self._build_optimizer(
+            self.optim_class, self.optim_args, self.scheduler_class, self.scheduler_args
+        )
 
         # load weights after building model, the experiment should handle loading current model
         for pretrained_config in self.pretrained_configs:
@@ -49,15 +56,17 @@ class BaseModel(nn.Module):
 
         self.to(self.device)
 
-    def _build_optimizer(self,
-                         optim_class="Adam", optim_args={},
-                         scheduler_class=None, scheduler_args={}):
+    def _build_optimizer(
+        self, optim_class="Adam", optim_args={}, scheduler_class=None, scheduler_args={}
+    ):
         """
         """
         # load optimizer
         if "params" in optim_args:
             for params_dict in optim_args["params"]:
-                params_dict["params"] = self._modules[params_dict["params"]].parameters()
+                params_dict["params"] = self._modules[
+                    params_dict["params"]
+                ].parameters()
         elif "modules" in optim_args:
             params = []
             for module in optim_args["modules"]:
@@ -71,9 +80,9 @@ class BaseModel(nn.Module):
         self.optimizer = getattr(optims, optim_class)(**optim_args)
         # load scheduler
         if scheduler_class is not None:
-            self.scheduler = getattr(schedulers,
-                                     scheduler_class)(self.optimizer,
-                                                      **scheduler_args)
+            self.scheduler = getattr(schedulers, scheduler_class)(
+                self.optimizer, **scheduler_args
+            )
         else:
             self.scheduler = None
 
@@ -123,7 +132,12 @@ class BaseModel(nn.Module):
                 # forward pass
                 predictions = self.predict(inputs)
                 if log_predictions:
-                    self._log_predictions(inputs=inputs, targets=targets, predictions=predictions, info=info)
+                    self._log_predictions(
+                        inputs=inputs,
+                        targets=targets,
+                        predictions=predictions,
+                        info=info,
+                    )
 
                 labels = self._get_labels(targets)
                 metrics.add(predictions, labels, info)
@@ -134,9 +148,14 @@ class BaseModel(nn.Module):
         metrics.compute()
         return metrics
 
-    def train_model(self, dataloader, num_epochs=20,
-                    metric_configs=[], summary_period=1,
-                    writer=None):
+    def train_model(
+        self,
+        dataloader,
+        num_epochs=20,
+        metric_configs=[],
+        summary_period=1,
+        writer=None,
+    ):
         """
         Main training function.
 
@@ -144,14 +163,14 @@ class BaseModel(nn.Module):
         weights on every epoch, denoting the best iteration by some specified
         metric.
         """
-        logging.info(f'Starting training for {num_epochs} epoch(s)')
+        logging.info(f"Starting training for {num_epochs} epoch(s)")
 
         # move to cuda
         if self.cuda:
             self._to_gpu()
 
         for epoch in range(num_epochs):
-            logging.info(f'Epoch {epoch + 1} of {num_epochs}')
+            logging.info(f"Epoch {epoch + 1} of {num_epochs}")
 
             # update learning rate
             if self.scheduler is not None:
@@ -159,13 +178,19 @@ class BaseModel(nn.Module):
                 learning_rate = self.scheduler.get_lr()[0]
                 logging.info(f"- Current learning rate: {learning_rate}")
 
-            train_metrics = self._train_epoch(dataloader, metric_configs,
-                                              summary_period, writer)
+            train_metrics = self._train_epoch(
+                dataloader, metric_configs, summary_period, writer
+            )
             yield train_metrics
 
-    def _train_epoch(self, dataloader,
-                     metric_configs=[], summary_period=1, writer=None,
-                     log_predictions=True):
+    def _train_epoch(
+        self,
+        dataloader,
+        metric_configs=[],
+        summary_period=1,
+        writer=None,
+        log_predictions=True,
+    ):
         """ Train the model for one epoch
         Args:
             train_data  (DataLoader)
@@ -187,7 +212,9 @@ class BaseModel(nn.Module):
 
                 # loss for dynamic dataloader
                 if hasattr(dataloader, "get_loss_weights"):
-                    loss = self.loss(outputs, targets, dataloader.get_loss_weights(targets))
+                    loss = self.loss(
+                        outputs, targets, dataloader.get_loss_weights(targets)
+                    )
                 else:
                     loss = self.loss(outputs, targets)
 
@@ -205,8 +232,7 @@ class BaseModel(nn.Module):
                         self._log_predictions(inputs, targets, predictions, info)
 
                     labels = self._get_labels(targets)
-                    metrics.add(predictions, labels, info,
-                                {"loss": loss})
+                    metrics.add(predictions, labels, info, {"loss": loss})
                     del predictions
 
                 # update dynamic dataloader
@@ -217,7 +243,7 @@ class BaseModel(nn.Module):
                 avg_loss = ((avg_loss * i) + loss) / (i + 1)
                 if writer is not None:
                     writer.add_scalar(tag="loss", scalar_value=loss)
-                t.set_postfix(loss='{:05.3f}'.format(float(avg_loss)))
+                t.set_postfix(loss="{:05.3f}".format(float(avg_loss)))
                 t.update()
 
                 del loss, outputs, inputs, targets, labels
@@ -262,8 +288,9 @@ class BaseModel(nn.Module):
         """
         torch.save(self.state_dict(), destination)
 
-    def load_weights(self, src_path, inclusion_res=None, substitution_res=None,
-                     device=None):
+    def load_weights(
+        self, src_path, inclusion_res=None, substitution_res=None, device=None
+    ):
         """
         args:
             src_path (str) path to the weights file
@@ -277,22 +304,33 @@ class BaseModel(nn.Module):
         if type(inclusion_res) is str:
             inclusion_res = [inclusion_res]
         if inclusion_res is not None:
-            src_state_dict = {key: val for key, val in src_state_dict.items()
-                              if re.match("|".join(inclusion_res), key) is not None}
+            src_state_dict = {
+                key: val
+                for key, val in src_state_dict.items()
+                if re.match("|".join(inclusion_res), key) is not None
+            }
 
         if substitution_res is not None:
             for pattern, repl in substitution_res:
-                src_state_dict = {re.sub(pattern, repl, key): val
-                                for key, val in src_state_dict.items()}
+                src_state_dict = {
+                    re.sub(pattern, repl, key): val
+                    for key, val in src_state_dict.items()
+                }
 
         self.load_state_dict(src_state_dict, strict=False)
-        n_loaded_params = len(set(self.state_dict().keys()) & set(src_state_dict.keys()))
+        n_loaded_params = len(
+            set(self.state_dict().keys()) & set(src_state_dict.keys())
+        )
         n_tot_params = len(src_state_dict.keys())
         if n_loaded_params < n_tot_params:
-            logging.info("Could not load these parameters due to name mismatch: " +
-                         f"{set(src_state_dict.keys()) - set(self.state_dict().keys())}")
-        logging.info(f"Loaded {n_loaded_params}/{n_tot_params} pretrained parameters" +
-                     f"from {src_path} matching '{inclusion_res}'.")
+            logging.info(
+                "Could not load these parameters due to name mismatch: "
+                + f"{set(src_state_dict.keys()) - set(self.state_dict().keys())}"
+            )
+        logging.info(
+            f"Loaded {n_loaded_params}/{n_tot_params} pretrained parameters"
+            + f"from {src_path} matching '{inclusion_res}'."
+        )
 
     def save(self, destination, **kwargs):
         """ Serialize and save a model.
@@ -300,7 +338,7 @@ class BaseModel(nn.Module):
             destination (str)   path indicating saving destination
         """
         pass
-        #with open(destination, "wb") as f:
+        # with open(destination, "wb") as f:
         #    torch.save(self, f, **kwargs)
 
     @staticmethod
