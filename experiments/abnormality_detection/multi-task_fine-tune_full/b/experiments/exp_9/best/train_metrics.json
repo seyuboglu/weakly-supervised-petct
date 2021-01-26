@@ -1,0 +1,6 @@
+{
+    "right_lungs": {
+        "accuracy": 0.99,
+        "roc_auc": 0.99776567518503
+    }
+}

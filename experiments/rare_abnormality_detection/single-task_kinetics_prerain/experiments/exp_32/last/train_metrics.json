@@ -1,0 +1,6 @@
+{
+    "celiac_lymph_node": {
+        "accuracy": 0.9895,
+        "roc_auc": 0.8392405977044683
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "inguinal_lymph_node": {
+        "accuracy": 0.983,
+        "roc_auc": 0.9960034140749601
+    }
+}

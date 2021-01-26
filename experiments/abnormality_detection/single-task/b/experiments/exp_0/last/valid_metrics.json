@@ -1,0 +1,12 @@
+{
+    "thoracic_lymph_node": {
+        "accuracy": 0.835,
+        "roc_auc": 0.8596966455853176,
+        "recall": 0.6205357142857143,
+        "precision": 0.7473118279569892,
+        "f1_score": 0.6780487804878049,
+        "negative_recall": 0.9184027777777778,
+        "negative_precision": 0.8615635179153095,
+        "negative_f1_score": 0.8890756302521008
+    }
+}

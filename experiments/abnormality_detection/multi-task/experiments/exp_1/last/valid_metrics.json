@@ -1,0 +1,262 @@
+{
+    "full": {
+        "accuracy": 0.91375,
+        "roc_auc": 0.7704554015741787,
+        "recall": 0.9931600547195623,
+        "precision": 0.9189873417721519,
+        "f1_score": 0.9546351084812623,
+        "negative_recall": 0.07246376811594203,
+        "negative_precision": 0.5,
+        "negative_f1_score": 0.12658227848101267
+    },
+    "inguinal_lymph_node": {
+        "accuracy": 0.925,
+        "roc_auc": 0.7458047860192631,
+        "recall": 0.25925925925925924,
+        "precision": 0.4117647058823529,
+        "f1_score": 0.3181818181818182,
+        "negative_recall": 0.9731903485254692,
+        "negative_precision": 0.9477806788511749,
+        "negative_f1_score": 0.9603174603174602
+    },
+    "left_lungs": {
+        "accuracy": 0.9,
+        "roc_auc": 0.770892357355037,
+        "recall": 0.2222222222222222,
+        "precision": 0.5142857142857142,
+        "f1_score": 0.31034482758620685,
+        "negative_recall": 0.9763560500695411,
+        "negative_precision": 0.9176470588235294,
+        "negative_f1_score": 0.9460916442048517
+    },
+    "carinal_lymph_node": {
+        "accuracy": 0.92375,
+        "roc_auc": 0.8567085295656724,
+        "recall": 0.49230769230769234,
+        "precision": 0.5333333333333333,
+        "f1_score": 0.512,
+        "negative_recall": 0.9619047619047619,
+        "negative_precision": 0.9554054054054054,
+        "negative_f1_score": 0.9586440677966102
+    },
+    "cervical_lymph_node": {
+        "accuracy": 0.90125,
+        "roc_auc": 0.7149828050934102,
+        "recall": 0.20689655172413793,
+        "precision": 0.26666666666666666,
+        "f1_score": 0.23300970873786406,
+        "negative_recall": 0.9555256064690026,
+        "negative_precision": 0.9390728476821192,
+        "negative_f1_score": 0.9472277889111556
+    },
+    "paratracheal_lymph_node": {
+        "accuracy": 0.90375,
+        "roc_auc": 0.8120183908045977,
+        "recall": 0.44,
+        "precision": 0.4852941176470588,
+        "f1_score": 0.46153846153846156,
+        "negative_recall": 0.9517241379310345,
+        "negative_precision": 0.9426229508196722,
+        "negative_f1_score": 0.9471516815374058
+    },
+    "right_lungs": {
+        "accuracy": 0.85375,
+        "roc_auc": 0.7420294796881539,
+        "recall": 0.5054945054945055,
+        "precision": 0.3898305084745763,
+        "f1_score": 0.4401913875598086,
+        "negative_recall": 0.8984485190409027,
+        "negative_precision": 0.9340175953079178,
+        "negative_f1_score": 0.9158878504672897
+    },
+    "pelvic_skeleton": {
+        "accuracy": 0.89375,
+        "roc_auc": 0.7400840383637015,
+        "recall": 0.2191780821917808,
+        "precision": 0.36363636363636365,
+        "f1_score": 0.2735042735042735,
+        "negative_recall": 0.9614855570839065,
+        "negative_precision": 0.9246031746031746,
+        "negative_f1_score": 0.9426837491571141
+    },
+    "axillary_lymph_node": {
+        "accuracy": 0.92625,
+        "roc_auc": 0.8495321195947964,
+        "recall": 0.5949367088607594,
+        "precision": 0.6351351351351351,
+        "f1_score": 0.6143790849673201,
+        "negative_recall": 0.9625520110957004,
+        "negative_precision": 0.9559228650137741,
+        "negative_f1_score": 0.95922598479613
+    },
+    "iliac_lymph_node": {
+        "accuracy": 0.8975,
+        "roc_auc": 0.7127256944444444,
+        "recall": 0.2625,
+        "precision": 0.4772727272727273,
+        "f1_score": 0.3387096774193549,
+        "negative_recall": 0.9680555555555556,
+        "negative_precision": 0.921957671957672,
+        "negative_f1_score": 0.9444444444444444
+    },
+    "supraclavicular_lymph_node": {
+        "accuracy": 0.90625,
+        "roc_auc": 0.8557558945908461,
+        "recall": 0.5569620253164557,
+        "precision": 0.5238095238095238,
+        "f1_score": 0.5398773006134969,
+        "negative_recall": 0.9445214979195562,
+        "negative_precision": 0.9511173184357542,
+        "negative_f1_score": 0.9478079331941545
+    },
+    "retroperitoneal_lymph_node": {
+        "accuracy": 0.89125,
+        "roc_auc": 0.7855832597323187,
+        "recall": 0.25609756097560976,
+        "precision": 0.44680851063829785,
+        "f1_score": 0.32558139534883723,
+        "negative_recall": 0.9637883008356546,
+        "negative_precision": 0.9189907038512616,
+        "negative_f1_score": 0.9408565601631543
+    },
+    "mouth": {
+        "accuracy": 0.9175,
+        "roc_auc": 0.776318516704038,
+        "recall": 0.1780821917808219,
+        "precision": 0.6842105263157895,
+        "f1_score": 0.2826086956521739,
+        "negative_recall": 0.9917469050894085,
+        "negative_precision": 0.9231754161331626,
+        "negative_f1_score": 0.9562334217506632
+    },
+    "liver": {
+        "accuracy": 0.80875,
+        "roc_auc": 0.7490955252300857,
+        "recall": 0.5826086956521739,
+        "precision": 0.38953488372093026,
+        "f1_score": 0.4668989547038328,
+        "negative_recall": 0.8467153284671532,
+        "negative_precision": 0.9235668789808917,
+        "negative_f1_score": 0.8834729626808836
+    },
+    "abdominal_lymph_node": {
+        "accuracy": 0.82875,
+        "roc_auc": 0.7374869526318406,
+        "recall": 0.4067796610169492,
+        "precision": 0.41739130434782606,
+        "f1_score": 0.4120171673819742,
+        "negative_recall": 0.9017595307917888,
+        "negative_precision": 0.8978102189781022,
+        "negative_f1_score": 0.8997805413313825
+    },
+    "hilar_lymph_node": {
+        "accuracy": 0.89875,
+        "roc_auc": 0.9086427696078432,
+        "recall": 0.725,
+        "precision": 0.6444444444444445,
+        "f1_score": 0.6823529411764706,
+        "negative_recall": 0.9294117647058824,
+        "negative_precision": 0.9503759398496241,
+        "negative_f1_score": 0.9397769516728625
+    },
+    "pelvis": {
+        "accuracy": 0.79125,
+        "roc_auc": 0.7261945850590581,
+        "recall": 0.36585365853658536,
+        "precision": 0.4878048780487805,
+        "f1_score": 0.41811846689895465,
+        "negative_recall": 0.9009433962264151,
+        "negative_precision": 0.8463810930576071,
+        "negative_f1_score": 0.8728103579588729
+    },
+    "spine": {
+        "accuracy": 0.7675,
+        "roc_auc": 0.7236348155888386,
+        "recall": 0.46296296296296297,
+        "precision": 0.43103448275862066,
+        "f1_score": 0.44642857142857145,
+        "negative_recall": 0.8448275862068966,
+        "negative_precision": 0.8610223642172524,
+        "negative_f1_score": 0.8528481012658229
+    },
+    "lungs": {
+        "accuracy": 0.825,
+        "roc_auc": 0.8346630347054076,
+        "recall": 0.6476190476190476,
+        "precision": 0.6732673267326733,
+        "f1_score": 0.6601941747572816,
+        "negative_recall": 0.888135593220339,
+        "negative_precision": 0.8762541806020067,
+        "negative_f1_score": 0.8821548821548821
+    },
+    "head": {
+        "accuracy": 0.755,
+        "roc_auc": 0.7259860962300351,
+        "recall": 0.34328358208955223,
+        "precision": 0.518796992481203,
+        "f1_score": 0.41317365269461076,
+        "negative_recall": 0.8931552587646077,
+        "negative_precision": 0.8020989505247377,
+        "negative_f1_score": 0.8451816745655609
+    },
+    "thoracic_lymph_node": {
+        "accuracy": 0.855,
+        "roc_auc": 0.8683539496527778,
+        "recall": 0.6785714285714286,
+        "precision": 0.7755102040816326,
+        "f1_score": 0.7238095238095238,
+        "negative_recall": 0.9236111111111112,
+        "negative_precision": 0.8807947019867549,
+        "negative_f1_score": 0.9016949152542373
+    },
+    "neck": {
+        "accuracy": 0.75125,
+        "roc_auc": 0.7577301488344763,
+        "recall": 0.5875486381322957,
+        "precision": 0.6188524590163934,
+        "f1_score": 0.6027944111776447,
+        "negative_recall": 0.8287292817679558,
+        "negative_precision": 0.8093525179856115,
+        "negative_f1_score": 0.818926296633303
+    },
+    "abdomen": {
+        "accuracy": 0.61125,
+        "roc_auc": 0.731489467732352,
+        "recall": 0.8152492668621701,
+        "precision": 0.5285171102661597,
+        "f1_score": 0.6412918108419838,
+        "negative_recall": 0.4596949891067538,
+        "negative_precision": 0.7700729927007299,
+        "negative_f1_score": 0.5757162346521145
+    },
+    "skeleton": {
+        "accuracy": 0.6325,
+        "roc_auc": 0.6865178721261956,
+        "recall": 0.5864406779661017,
+        "precision": 0.5014492753623189,
+        "f1_score": 0.540625,
+        "negative_recall": 0.6594059405940594,
+        "negative_precision": 0.7318681318681318,
+        "negative_f1_score": 0.69375
+    },
+    "head_neck": {
+        "accuracy": 0.675,
+        "roc_auc": 0.736573547979798,
+        "recall": 0.6944444444444444,
+        "precision": 0.625,
+        "f1_score": 0.6578947368421053,
+        "negative_recall": 0.6590909090909091,
+        "negative_precision": 0.725,
+        "negative_f1_score": 0.6904761904761905
+    },
+    "chest": {
+        "accuracy": 0.8,
+        "roc_auc": 0.8654025645362349,
+        "recall": 0.7684964200477327,
+        "precision": 0.8363636363636363,
+        "f1_score": 0.8009950248756219,
+        "negative_recall": 0.8346456692913385,
+        "negative_precision": 0.7662650602409639,
+        "negative_f1_score": 0.7989949748743719
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "pancreas": {
+        "accuracy": 0.935,
+        "roc_auc": 0.7387054826125257,
+        "recall": 0.1935483870967742,
+        "precision": 0.18181818181818182,
+        "f1_score": 0.18750000000000003,
+        "negative_recall": 0.9648894668400521,
+        "negative_precision": 0.9674054758800521,
+        "negative_f1_score": 0.9661458333333333
+    }
+}

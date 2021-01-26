@@ -1,0 +1,6 @@
+{
+    "left_lungs": {
+        "accuracy": 1.0,
+        "roc_auc": 1.0
+    }
+}

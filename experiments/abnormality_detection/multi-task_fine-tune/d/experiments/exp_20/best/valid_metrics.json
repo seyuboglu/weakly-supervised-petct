@@ -1,0 +1,12 @@
+{
+    "abdominal_lymph_node": {
+        "accuracy": 0.84125,
+        "roc_auc": 0.7523858044634425,
+        "recall": 0.4322033898305085,
+        "precision": 0.4594594594594595,
+        "f1_score": 0.4454148471615721,
+        "negative_recall": 0.9120234604105572,
+        "negative_precision": 0.9027576197387518,
+        "negative_f1_score": 0.9073668854850474
+    }
+}

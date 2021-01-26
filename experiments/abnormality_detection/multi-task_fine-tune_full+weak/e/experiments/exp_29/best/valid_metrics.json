@@ -1,0 +1,12 @@
+{
+    "chest": {
+        "accuracy": 0.77125,
+        "roc_auc": 0.8594453736242396,
+        "recall": 0.8544152744630071,
+        "precision": 0.7458333333333333,
+        "f1_score": 0.796440489432703,
+        "negative_recall": 0.6797900262467191,
+        "negative_precision": 0.809375,
+        "negative_f1_score": 0.7389443651925821
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "retroperitoneal_lymph_node": {
+        "accuracy": 0.8675,
+        "roc_auc": 0.7670400502751547,
+        "recall": 0.45121951219512196,
+        "precision": 0.37755102040816324,
+        "f1_score": 0.4111111111111111,
+        "negative_recall": 0.915041782729805,
+        "negative_precision": 0.9358974358974359,
+        "negative_f1_score": 0.9253521126760563
+    }
+}

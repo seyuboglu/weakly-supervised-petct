@@ -1,0 +1,6 @@
+{
+    "carinal_lymph_node": {
+        "accuracy": 0.938,
+        "roc_auc": 0.9428787438208782
+    }
+}

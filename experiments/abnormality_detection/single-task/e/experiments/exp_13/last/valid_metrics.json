@@ -1,0 +1,12 @@
+{
+    "pelvic_skeleton": {
+        "accuracy": 0.90875,
+        "roc_auc": 0.41378530647623,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1_score": 0.0,
+        "negative_recall": 1.0,
+        "negative_precision": 0.90875,
+        "negative_f1_score": 0.9521938441388342
+    }
+}

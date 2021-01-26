@@ -1,0 +1,106 @@
+{
+    "full": {
+        "accuracy": 0.8745,
+        "roc_auc": 0.8879149063074706
+    },
+    "inguinal_lymph_node": {
+        "accuracy": 0.9395,
+        "roc_auc": 0.9161717754332488
+    },
+    "left_lungs": {
+        "accuracy": 0.913,
+        "roc_auc": 0.8748416803598601
+    },
+    "carinal_lymph_node": {
+        "accuracy": 0.9305,
+        "roc_auc": 0.9315684255889676
+    },
+    "cervical_lymph_node": {
+        "accuracy": 0.9185,
+        "roc_auc": 0.903298339661976
+    },
+    "paratracheal_lymph_node": {
+        "accuracy": 0.9165,
+        "roc_auc": 0.910193810096154
+    },
+    "right_lungs": {
+        "accuracy": 0.9185,
+        "roc_auc": 0.8775214060664072
+    },
+    "pelvic_skeleton": {
+        "accuracy": 0.911,
+        "roc_auc": 0.8789727563013792
+    },
+    "axillary_lymph_node": {
+        "accuracy": 0.9555,
+        "roc_auc": 0.9574182188861087
+    },
+    "iliac_lymph_node": {
+        "accuracy": 0.8995,
+        "roc_auc": 0.8870430139961389
+    },
+    "supraclavicular_lymph_node": {
+        "accuracy": 0.9185,
+        "roc_auc": 0.914557837112953
+    },
+    "retroperitoneal_lymph_node": {
+        "accuracy": 0.907,
+        "roc_auc": 0.9108830492424242
+    },
+    "mouth": {
+        "accuracy": 0.88,
+        "roc_auc": 0.8404113297733298
+    },
+    "liver": {
+        "accuracy": 0.9155,
+        "roc_auc": 0.8907315340909091
+    },
+    "abdominal_lymph_node": {
+        "accuracy": 0.8935,
+        "roc_auc": 0.874192482463591
+    },
+    "hilar_lymph_node": {
+        "accuracy": 0.897,
+        "roc_auc": 0.9251261550015868
+    },
+    "pelvis": {
+        "accuracy": 0.8555,
+        "roc_auc": 0.8935412924374159
+    },
+    "spine": {
+        "accuracy": 0.83,
+        "roc_auc": 0.8166730680322913
+    },
+    "lungs": {
+        "accuracy": 0.856,
+        "roc_auc": 0.9008934444498806
+    },
+    "head": {
+        "accuracy": 0.7705,
+        "roc_auc": 0.778692371836162
+    },
+    "thoracic_lymph_node": {
+        "accuracy": 0.871,
+        "roc_auc": 0.9229396325459318
+    },
+    "neck": {
+        "accuracy": 0.8365,
+        "roc_auc": 0.8852490606031411
+    },
+    "abdomen": {
+        "accuracy": 0.8085,
+        "roc_auc": 0.8764838676948051
+    },
+    "skeleton": {
+        "accuracy": 0.748,
+        "roc_auc": 0.8143220361196299
+    },
+    "head_neck": {
+        "accuracy": 0.7805,
+        "roc_auc": 0.8625618769104073
+    },
+    "chest": {
+        "accuracy": 0.8495,
+        "roc_auc": 0.9261257848617268
+    }
+}

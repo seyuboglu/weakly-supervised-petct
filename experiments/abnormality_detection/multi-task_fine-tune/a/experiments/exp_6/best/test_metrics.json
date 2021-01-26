@@ -1,0 +1,12 @@
+{
+    "inguinal_lymph_node": {
+        "accuracy": 0.9213759213759214,
+        "roc_auc": 0.8879099133056917,
+        "recall": 0.7321428571428571,
+        "precision": 0.45555555555555555,
+        "f1_score": 0.5616438356164383,
+        "negative_recall": 0.9353562005277045,
+        "negative_precision": 0.9792817679558011,
+        "negative_f1_score": 0.9568151147098515
+    }
+}

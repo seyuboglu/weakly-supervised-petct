@@ -1,0 +1,12 @@
+{
+    "pelvis": {
+        "accuracy": 0.79375,
+        "roc_auc": 0.4202044025157232,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1_score": 0.0,
+        "negative_recall": 0.9984276729559748,
+        "negative_precision": 0.7947434292866082,
+        "negative_f1_score": 0.8850174216027874
+    }
+}

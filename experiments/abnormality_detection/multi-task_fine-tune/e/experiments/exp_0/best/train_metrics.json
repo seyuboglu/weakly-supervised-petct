@@ -1,0 +1,6 @@
+{
+    "paratracheal_lymph_node": {
+        "accuracy": 0.9455,
+        "roc_auc": 0.9540416138274388
+    }
+}

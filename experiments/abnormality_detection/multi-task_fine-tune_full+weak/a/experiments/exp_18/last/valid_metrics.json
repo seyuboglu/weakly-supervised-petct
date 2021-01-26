@@ -1,0 +1,12 @@
+{
+    "carinal_lymph_node": {
+        "accuracy": 0.87875,
+        "roc_auc": 0.8421978021978022,
+        "recall": 0.7076923076923077,
+        "precision": 0.3709677419354839,
+        "f1_score": 0.4867724867724868,
+        "negative_recall": 0.8938775510204081,
+        "negative_precision": 0.9718934911242604,
+        "negative_f1_score": 0.9312544294826365
+    }
+}

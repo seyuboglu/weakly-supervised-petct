@@ -1,0 +1,12 @@
+{
+    "iliac_lymph_node": {
+        "accuracy": 0.89125,
+        "roc_auc": 0.7802300347222222,
+        "recall": 0.2875,
+        "precision": 0.4339622641509434,
+        "f1_score": 0.3458646616541353,
+        "negative_recall": 0.9583333333333334,
+        "negative_precision": 0.9236947791164659,
+        "negative_f1_score": 0.9406952965235175
+    }
+}

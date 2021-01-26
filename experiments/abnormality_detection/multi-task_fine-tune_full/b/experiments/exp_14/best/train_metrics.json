@@ -1,0 +1,6 @@
+{
+    "pelvic_skeleton": {
+        "accuracy": 0.99,
+        "roc_auc": 1.0
+    }
+}

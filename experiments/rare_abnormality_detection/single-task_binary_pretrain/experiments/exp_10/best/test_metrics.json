@@ -1,0 +1,12 @@
+{
+    "kidney": {
+        "accuracy": 0.9914004914004914,
+        "roc_auc": 0.5192901234567902,
+        "recall": 0.25,
+        "precision": 0.2,
+        "f1_score": 0.22222222222222224,
+        "negative_recall": 0.9950617283950617,
+        "negative_precision": 0.9962917181705809,
+        "negative_f1_score": 0.9956763434218653
+    }
+}

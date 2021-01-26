@@ -1,0 +1,149 @@
+{
+    "process_class": "Experiment",
+    "process_args": {
+        "remote_model_dir": "/data/fdg-pet-ct/models",
+        "cuda": true,
+        "devices": [
+            3
+        ],
+        "task_configs": [
+            {
+                "task": "chest"
+            }
+        ],
+        "default_task_config": {
+            "num_classes": 2,
+            "decoder_class": "MultiAttClassDecoder",
+            "decoder_args": {
+                "encoding_size": 1024,
+                "num_heads": 8
+            }
+        },
+        "seed": 222,
+        "primary_metric": "roc_auc",
+        "train_args": {
+            "num_epochs": 8,
+            "summary_period": 1,
+            "metric_configs": [
+                {
+                    "fn": "accuracy"
+                },
+                {
+                    "fn": "roc_auc"
+                }
+            ]
+        },
+        "evaluate_args": {
+            "metric_configs": [
+                {
+                    "fn": "accuracy"
+                },
+                {
+                    "fn": "roc_auc"
+                },
+                {
+                    "fn": "recall"
+                },
+                {
+                    "fn": "precision"
+                },
+                {
+                    "fn": "f1_score"
+                },
+                {
+                    "fn": "negative_recall"
+                },
+                {
+                    "fn": "negative_precision"
+                },
+                {
+                    "fn": "negative_f1_score"
+                }
+            ]
+        },
+        "dataset_class": "MTClassifierDataset",
+        "dataset_args": {
+            "dataset_dir": "data/regional_dataset_data/",
+            "targets_dir": "data/regional_dataset_data/labels/full_labels_6_altered_valid_test",
+            "image_types": [
+                "CT Images",
+                "PET_BODY_CTAC"
+            ],
+            "normalize": true,
+            "image_transform_configs": [
+                {
+                    "fn": "random_crop",
+                    "args": {
+                        "size": [
+                            200,
+                            200
+                        ]
+                    }
+                },
+                {
+                    "fn": "color_jitter",
+                    "args": {
+                        "brightness": [
+                            0.0,
+                            0.25
+                        ]
+                    }
+                }
+            ],
+            "size": [
+                224,
+                224
+            ]
+        },
+        "dataloader_configs": [
+            {
+                "split": "train",
+                "dataloader_class": "MTExamDataLoader",
+                "dataloader_args": {
+                    "shuffle": false,
+                    "num_workers": 8,
+                    "batch_size": 1,
+                    "sampler": "RandomSampler",
+                    "num_samples": 2000
+                }
+            },
+            {
+                "split": "valid",
+                "dataloader_class": "MTExamDataLoader",
+                "dataloader_args": {
+                    "batch_size": 1,
+                    "shuffle": true,
+                    "num_workers": 8
+                }
+            }
+        ],
+        "model_class": "MTClassifierModel",
+        "model_args": {
+            "pretrained_configs": [],
+            "encoder_class": "I3DEncoder",
+            "encoder_args": {
+                "weights_path": "models/i3d/model_flow.pth",
+                "modality": "flow",
+                "dropout_prob": 0.5
+            },
+            "decoder_config": {
+                "class": "MTDecoder",
+                "args": {}
+            },
+            "loss_class": "MTCrossEntropyLoss",
+            "loss_args": {
+                "manager_args": {}
+            },
+            "optim_class": "Adam",
+            "optim_args": {
+                "lr": 0.0001,
+                "weight_decay": 0.0
+            },
+            "scheduler_class": "StepLR",
+            "scheduler_args": {
+                "step_size": 10,
+                "gamma": 0.5
+            }
+        }
+    }
+}

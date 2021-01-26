@@ -1,0 +1,12 @@
+{
+    "head_neck": {
+        "accuracy": 0.7025,
+        "roc_auc": 0.7379671717171717,
+        "recall": 0.5722222222222222,
+        "precision": 0.7103448275862069,
+        "f1_score": 0.6338461538461537,
+        "negative_recall": 0.8090909090909091,
+        "negative_precision": 0.6980392156862745,
+        "negative_f1_score": 0.7494736842105263
+    }
+}

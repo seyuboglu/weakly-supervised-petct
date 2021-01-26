@@ -1,0 +1,12 @@
+{
+    "mouth": {
+        "accuracy": 0.90875,
+        "roc_auc": 0.783850879011136,
+        "recall": 0.1917808219178082,
+        "precision": 0.5,
+        "f1_score": 0.2772277227722772,
+        "negative_recall": 0.9807427785419532,
+        "negative_precision": 0.9235751295336787,
+        "negative_f1_score": 0.9513008672448299
+    }
+}

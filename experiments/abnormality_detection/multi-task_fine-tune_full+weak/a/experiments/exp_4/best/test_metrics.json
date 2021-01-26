@@ -1,0 +1,12 @@
+{
+    "full": {
+        "accuracy": 0.7706855791962175,
+        "roc_auc": 0.8729579748098266,
+        "recall": 1.0,
+        "precision": 0.7695961995249406,
+        "f1_score": 0.8697986577181208,
+        "negative_recall": 0.020202020202020204,
+        "negative_precision": 1.0,
+        "negative_f1_score": 0.03960396039603961
+    }
+}

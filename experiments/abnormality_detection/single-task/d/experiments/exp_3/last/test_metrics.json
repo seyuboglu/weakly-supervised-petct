@@ -1,0 +1,12 @@
+{
+    "supraclavicular_lymph_node": {
+        "accuracy": 0.9176904176904177,
+        "roc_auc": 0.8197366580750864,
+        "recall": 0.05970149253731343,
+        "precision": 0.5,
+        "f1_score": 0.10666666666666667,
+        "negative_recall": 0.9946452476572959,
+        "negative_precision": 0.9218362282878412,
+        "negative_f1_score": 0.9568576947842885
+    }
+}

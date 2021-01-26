@@ -1,0 +1,12 @@
+{
+    "adrenal": {
+        "accuracy": 0.855,
+        "roc_auc": 0.6024804177545692,
+        "recall": 0.2647058823529412,
+        "precision": 0.09,
+        "f1_score": 0.13432835820895522,
+        "negative_recall": 0.881201044386423,
+        "negative_precision": 0.9642857142857143,
+        "negative_f1_score": 0.9208731241473398
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "cervical_lymph_node": {
+        "accuracy": 0.998,
+        "roc_auc": 0.9999636773092151
+    }
+}

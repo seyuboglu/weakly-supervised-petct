@@ -1,0 +1,6 @@
+{
+    "abdominal_lymph_node": {
+        "accuracy": 0.867,
+        "roc_auc": 0.8309089655647857
+    }
+}

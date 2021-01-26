@@ -1,0 +1,12 @@
+{
+    "abdomen": {
+        "accuracy": 0.7125,
+        "roc_auc": 0.7518256569489965,
+        "recall": 0.501466275659824,
+        "precision": 0.7402597402597403,
+        "f1_score": 0.5979020979020979,
+        "negative_recall": 0.869281045751634,
+        "negative_precision": 0.7012302284710018,
+        "negative_f1_score": 0.7762645914396887
+    }
+}

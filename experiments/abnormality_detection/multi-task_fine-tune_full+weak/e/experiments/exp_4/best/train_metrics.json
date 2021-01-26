@@ -1,0 +1,6 @@
+{
+    "thoracic_lymph_node": {
+        "accuracy": 0.915,
+        "roc_auc": 0.9532519165965618
+    }
+}

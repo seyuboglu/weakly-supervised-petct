@@ -1,0 +1,12 @@
+{
+    "spine": {
+        "accuracy": 0.7975,
+        "roc_auc": 0.6990692364255582,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1_score": 0.0,
+        "negative_recall": 1.0,
+        "negative_precision": 0.7975,
+        "negative_f1_score": 0.8873435326842838
+    }
+}

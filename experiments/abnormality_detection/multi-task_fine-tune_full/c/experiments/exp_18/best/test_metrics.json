@@ -1,0 +1,12 @@
+{
+    "liver": {
+        "accuracy": 0.8841607565011821,
+        "roc_auc": 0.5490045691906005,
+        "recall": 0.0,
+        "precision": 0.0,
+        "f1_score": 0.0,
+        "negative_recall": 0.9765013054830287,
+        "negative_precision": 0.9033816425120773,
+        "negative_f1_score": 0.9385194479297365
+    }
+}

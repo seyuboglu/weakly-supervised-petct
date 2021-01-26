@@ -1,0 +1,12 @@
+{
+    "skeleton": {
+        "accuracy": 0.65,
+        "roc_auc": 0.645302903171673,
+        "recall": 0.4,
+        "precision": 0.5339366515837104,
+        "f1_score": 0.45736434108527135,
+        "negative_recall": 0.7960396039603961,
+        "negative_precision": 0.694300518134715,
+        "negative_f1_score": 0.7416974169741698
+    }
+}

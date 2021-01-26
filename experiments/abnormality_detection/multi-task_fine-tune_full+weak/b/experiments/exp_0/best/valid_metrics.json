@@ -1,0 +1,12 @@
+{
+    "paratracheal_lymph_node": {
+        "accuracy": 0.915,
+        "roc_auc": 0.8476735632183909,
+        "recall": 0.49333333333333335,
+        "precision": 0.5522388059701493,
+        "f1_score": 0.5211267605633803,
+        "negative_recall": 0.9586206896551724,
+        "negative_precision": 0.9481582537517054,
+        "negative_f1_score": 0.953360768175583
+    }
+}

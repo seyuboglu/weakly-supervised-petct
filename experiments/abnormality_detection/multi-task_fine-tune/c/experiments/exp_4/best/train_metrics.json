@@ -1,0 +1,6 @@
+{
+    "hilar_lymph_node": {
+        "accuracy": 0.944,
+        "roc_auc": 0.9844493586908447
+    }
+}

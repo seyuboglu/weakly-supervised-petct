@@ -1,0 +1,6 @@
+{
+    "iliac_lymph_node": {
+        "accuracy": 0.954,
+        "roc_auc": 0.9707465498238235
+    }
+}

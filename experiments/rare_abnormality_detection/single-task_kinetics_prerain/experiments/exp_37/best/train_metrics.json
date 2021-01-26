@@ -1,0 +1,6 @@
+{
+    "gastrohepatic_lymph_node": {
+        "accuracy": 0.9865,
+        "roc_auc": 0.9569559422575135
+    }
+}

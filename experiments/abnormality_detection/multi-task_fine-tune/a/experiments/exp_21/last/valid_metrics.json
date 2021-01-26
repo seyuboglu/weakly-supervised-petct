@@ -1,0 +1,12 @@
+{
+    "cervical_lymph_node": {
+        "accuracy": 0.9225,
+        "roc_auc": 0.7379635653871177,
+        "recall": 0.017241379310344827,
+        "precision": 0.16666666666666666,
+        "f1_score": 0.03125,
+        "negative_recall": 0.9932614555256065,
+        "negative_precision": 0.9282115869017632,
+        "negative_f1_score": 0.9596354166666666
+    }
+}

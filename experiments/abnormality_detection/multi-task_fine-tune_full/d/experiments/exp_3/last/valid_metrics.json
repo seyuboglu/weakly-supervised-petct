@@ -1,0 +1,12 @@
+{
+    "hilar_lymph_node": {
+        "accuracy": 0.8575,
+        "roc_auc": 0.8300183823529412,
+        "recall": 0.1,
+        "precision": 0.6666666666666666,
+        "f1_score": 0.1739130434782609,
+        "negative_recall": 0.9911764705882353,
+        "negative_precision": 0.8618925831202046,
+        "negative_f1_score": 0.9220246238030094
+    }
+}

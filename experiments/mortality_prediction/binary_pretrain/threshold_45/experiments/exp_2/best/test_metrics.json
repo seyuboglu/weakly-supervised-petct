@@ -1,0 +1,12 @@
+{
+    "mortality": {
+        "accuracy": 0.9936034115138592,
+        "roc_auc": 0.8226037195994278,
+        "recall": 1.0,
+        "precision": 0.9936034115138592,
+        "f1_score": 0.9967914438502673,
+        "negative_recall": 0.0,
+        "negative_precision": 0.0,
+        "negative_f1_score": 0.0
+    }
+}

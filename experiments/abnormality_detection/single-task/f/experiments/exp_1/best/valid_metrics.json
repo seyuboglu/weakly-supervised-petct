@@ -1,0 +1,12 @@
+{
+    "axillary_lymph_node": {
+        "accuracy": 0.93125,
+        "roc_auc": 0.8876823680191015,
+        "recall": 0.6962025316455697,
+        "precision": 0.6395348837209303,
+        "f1_score": 0.6666666666666667,
+        "negative_recall": 0.957004160887656,
+        "negative_precision": 0.9663865546218487,
+        "negative_f1_score": 0.9616724738675957
+    }
+}

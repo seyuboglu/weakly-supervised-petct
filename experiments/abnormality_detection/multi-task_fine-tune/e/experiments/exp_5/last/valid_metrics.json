@@ -1,0 +1,12 @@
+{
+    "right_lungs": {
+        "accuracy": 0.8875,
+        "roc_auc": 0.7717455323238116,
+        "recall": 0.0989010989010989,
+        "precision": 0.5294117647058824,
+        "f1_score": 0.16666666666666669,
+        "negative_recall": 0.9887165021156559,
+        "negative_precision": 0.8952745849297573,
+        "negative_f1_score": 0.9396782841823056
+    }
+}

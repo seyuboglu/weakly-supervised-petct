@@ -1,0 +1,6 @@
+{
+    "axillary_lymph_node": {
+        "accuracy": 0.9575,
+        "roc_auc": 0.9541105258479545
+    }
+}
