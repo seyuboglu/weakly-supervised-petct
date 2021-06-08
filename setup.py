@@ -45,7 +45,7 @@ setuptools.setup(
         'numpy==1.16.4',
         'opencv-python==4.1.0.25',
         'pandas==0.24.2',
-        'Pillow==7.1.0',
+        'Pillow==8.2.0',
         'pydicom==1.3.0',
         'transformers==2.6.0',
         'scikit-learn==0.21.2',
