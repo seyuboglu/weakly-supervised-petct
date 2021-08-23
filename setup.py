@@ -36,7 +36,7 @@ setuptools.setup(
         'ipywidgets==7.5.0',
         'ipyvolume==0.5.2',
         'jupyter==1.0.0',
-        'jupyterlab==1.0.2',
+        'jupyterlab==1.2.21',
         'lifelines==0.23.0',
         'matplotlib==3.1.1',
         'networkx==2.3',
