@@ -43,7 +43,7 @@ setuptools.setup(
         'nltk==3.4.5',
         'nodejs==0.1.1',
         'numpy==1.16.4',
-        'opencv-python==4.1.0.25',
+        'opencv-python==4.1.1.26',
         'pandas==0.24.2',
         'Pillow==7.1.0',
         'pydicom==1.3.0',
