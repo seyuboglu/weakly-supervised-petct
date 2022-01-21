@@ -32,7 +32,7 @@ setuptools.setup(
         'Click==7.0', 
         'h5py==2.9.0', 
         'ipykernel==5.1.1',
-        'ipython==7.6.1',
+        'ipython==7.16.3',
         'ipywidgets==7.5.0',
         'ipyvolume==0.5.2',
         'jupyter==1.0.0',
