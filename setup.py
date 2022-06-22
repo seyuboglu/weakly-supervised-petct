@@ -42,7 +42,7 @@ setuptools.setup(
         'networkx==2.3',
         'nltk==3.4.5',
         'nodejs==0.1.1',
-        'numpy==1.16.4',
+        'numpy==1.22.0',
         'opencv-python==4.1.0.25',
         'pandas==0.24.2',
         'Pillow==7.1.0',
